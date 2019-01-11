@@ -1,4 +1,4 @@
-package com.paulmarkcastillo.pmctoolbox.validators
+package toolbox.paulmarkcastillo.com.pmctoolbox
 
 import java.util.regex.Pattern
 
