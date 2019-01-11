@@ -1,4 +1,4 @@
-package toolbox.paulmarkcastillo.com.pmctoolbox
+package toolbox.paulmarkcastillo.com.pmctoolbox.validators
 
 import java.util.regex.Pattern
 
@@ -20,5 +20,11 @@ class PasswordValidator {
 
     fun passwordHasNoSpaces(password: String): Boolean {
         return PASSWORD_NO_PACES_PATTERN.matcher(password).matches()
+    }
+
+    fun isValidPassword(password: String): Boolean {
+        return passwordMeetsMinimumLength(password) &&
+                passwordHasAtleastOneNumber(password) &&
+                passwordHasNoSpaces(password)
     }
 }

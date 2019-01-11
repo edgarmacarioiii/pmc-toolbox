@@ -1,10 +1,10 @@
-package toolbox.paulmarkcastillo.com.pmctoolbox
+package toolbox.paulmarkcastillo.com.pmctoolbox.validators
 
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.regex.Pattern
 
-class DOBValidator {
+class DOBValidator(private val minimumAge: Int) {
     // This regex check for valid date with a format of MM/dd/yyyy
     private val DATE_PATTERN = Pattern
         .compile(
@@ -27,6 +27,6 @@ class DOBValidator {
         val longBirthDate = (formatDate.format(birthDate)).toLong()
         val longCurrentDate = (formatDate.format(currentDate)).toLong()
         val age = (longCurrentDate - longBirthDate) / 10000
-        return age >= 13
+        return age >= minimumAge
     }
 }

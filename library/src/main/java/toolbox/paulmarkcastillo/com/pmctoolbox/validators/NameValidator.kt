@@ -1,4 +1,4 @@
-package toolbox.paulmarkcastillo.com.pmctoolbox
+package toolbox.paulmarkcastillo.com.pmctoolbox.validators
 
 class NameValidator {
     fun isValidName(name: String?): Boolean {
