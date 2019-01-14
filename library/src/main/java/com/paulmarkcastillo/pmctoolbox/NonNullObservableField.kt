@@ -1,7 +1,7 @@
 package toolbox.paulmarkcastillo.com.pmctoolbox
 
-import android.databinding.Observable
-import android.databinding.ObservableField
+import androidx.databinding.Observable
+import androidx.databinding.ObservableField
 
 class NonNullObservableField<T : Any>(
     value: T, vararg dependencies: Observable
