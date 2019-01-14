@@ -1,5 +1,6 @@
 package toolbox.paulmarkcastillo.com.pmctoolbox.validators
 
+import com.paulmarkcastillo.pmctoolbox.validators.EmailValidator
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test

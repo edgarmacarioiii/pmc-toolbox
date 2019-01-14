@@ -1,4 +1,4 @@
-package toolbox.paulmarkcastillo.com.pmctoolbox
+package com.paulmarkcastillo.pmctoolbox
 
 /*
  * Copyright 2018 Google LLC

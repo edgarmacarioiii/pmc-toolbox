@@ -1,5 +1,6 @@
 package toolbox.paulmarkcastillo.com.pmctoolbox.validators
 
+import com.paulmarkcastillo.pmctoolbox.validators.MemberIdValidator
 import junit.framework.TestCase.assertFalse
 import junit.framework.TestCase.assertTrue
 import org.junit.Test
