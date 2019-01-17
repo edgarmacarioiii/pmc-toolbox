@@ -19,7 +19,7 @@ A companion library containing common tools for Android development like: valida
     * `LengthConverter` - Inch, Feet, Cm
     * `WeightConverter` - Lb, Kg
 
-* __MVVM Tools__.
+* __LiveData Tools__.
 
     * `Event` - From [Here](https://github.com/google/iosched/blob/master/shared/src/main/java/com/google/samples/apps/iosched/shared/result/Event.kt)
     * `NonNullObservableField` - From [Here](https://medium.com/meesho-tech/non-null-observablefield-in-kotlin-bd72d31ab54f)
