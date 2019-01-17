@@ -1,4 +1,4 @@
-package toolbox.paulmarkcastillo.com.pmctoolbox.validators
+package com.paulmarkcastillo.pmctoolbox.converters
 
 import com.paulmarkcastillo.pmctoolbox.validators.EmailValidator
 import org.junit.Assert.assertFalse
@@ -9,74 +9,79 @@ class EmailValidatorTest {
     private val emailValidator = EmailValidator()
 
     @Test
+    fun testValidationInvalidEmailNull() {
+        assertFalse(emailValidator.isEmailValid(null))
+    }
+
+    @Test
     fun testValidationValidEmail() {
-        assertTrue(emailValidator.isValidEmail("local@domain.tld"))
+        assertTrue(emailValidator.isEmailValid("local@domain.tld"))
     }
 
     @Test
     fun testValidationValidEmailCapital() {
-        assertTrue(emailValidator.isValidEmail("Local@domain.tld"))
+        assertTrue(emailValidator.isEmailValid("Local@domain.tld"))
     }
 
     // QA ==========================================================================================
 
     @Test
     fun testValidationInvalidEmailNoDomain() {
-        assertFalse(emailValidator.isValidEmail("test"))
+        assertFalse(emailValidator.isEmailValid("test"))
     }
 
     @Test
     fun testValidationInvalidEmailAtOnly() {
-        assertFalse(emailValidator.isValidEmail("test@"))
+        assertFalse(emailValidator.isEmailValid("test@"))
     }
 
     @Test
     fun testValidationInvalidEmailDoubleAtNoTLD() {
-        assertFalse(emailValidator.isValidEmail("test@test@"))
+        assertFalse(emailValidator.isEmailValid("test@test@"))
     }
 
     @Test
     fun testValidationInvalidEmailMissingDomain() {
-        assertFalse(emailValidator.isValidEmail("test@.com"))
+        assertFalse(emailValidator.isEmailValid("test@.com"))
     }
 
     @Test
     fun testValidationInvalidEmailDoubleAt() {
-        assertFalse(emailValidator.isValidEmail("test@test.com@"))
+        assertFalse(emailValidator.isEmailValid("test@test.com@"))
     }
 
     // Test Values from https://stackoverflow.com/questions/8204680/java-regex-email/13013056#13013056
     // VALID =======================================================================================
     @Test
     fun testValidationValidEmailStackoverflow01() {
-        assertTrue(emailValidator.isValidEmail("john@example.commm"))
+        assertTrue(emailValidator.isEmailValid("john@example.commm"))
     }
 
     @Test
     fun testValidationValidEmailStackoverflow02() {
-        assertTrue(emailValidator.isValidEmail("abc.xyz@gmail"))
+        assertTrue(emailValidator.isEmailValid("abc.xyz@gmail"))
     }
 
     @Test
     fun testValidationValidEmailStackoverflow03() {
-        assertTrue(emailValidator.isValidEmail("email@email"))
+        assertTrue(emailValidator.isEmailValid("email@email"))
     }
 
     @Test
     fun testValidationValidEmailStackoverflow04() {
-        assertTrue(emailValidator.isValidEmail("65@45"))
+        assertTrue(emailValidator.isEmailValid("65@45"))
     }
 
     // INVALID =====================================================================================
 
     @Test
     fun testValidationInvalidEmailStackoverflow01() {
-        assertFalse(emailValidator.isValidEmail("me@example..com"))
+        assertFalse(emailValidator.isEmailValid("me@example..com"))
     }
 
     @Test
     fun testValidationInvalidEmailStackoverflow02() {
-        assertFalse(emailValidator.isValidEmail("..@email.com"))
+        assertFalse(emailValidator.isEmailValid("..@email.com"))
     }
 
     // Test Values from Wikipedia: https://en.wikipedia.org/wiki/Email_address#Examples
@@ -84,124 +89,124 @@ class EmailValidatorTest {
 
     @Test
     fun testValidationValidEmailWikipedia01() {
-        assertTrue(emailValidator.isValidEmail("simple@example.com"))
+        assertTrue(emailValidator.isEmailValid("simple@example.com"))
     }
 
     @Test
     fun testValidationValidEmailWikipedia02() {
-        assertTrue(emailValidator.isValidEmail("very.common@example.com"))
+        assertTrue(emailValidator.isEmailValid("very.common@example.com"))
     }
 
     @Test
     fun testValidationValidEmailWikipedia03() {
-        assertTrue(emailValidator.isValidEmail("disposable.style.email.with+symbol@example.com"))
+        assertTrue(emailValidator.isEmailValid("disposable.style.email.with+symbol@example.com"))
     }
 
     @Test
     fun testValidationValidEmailWikipedia04() {
-        assertTrue(emailValidator.isValidEmail("other.email-with-hyphen@example.com"))
+        assertTrue(emailValidator.isEmailValid("other.email-with-hyphen@example.com"))
     }
 
     @Test
     fun testValidationValidEmailWikipedia05() {
-        assertTrue(emailValidator.isValidEmail("fully-qualified-domain@example.com"))
+        assertTrue(emailValidator.isEmailValid("fully-qualified-domain@example.com"))
     }
 
     @Test
     fun testValidationValidEmailWikipedia06() {
-        assertTrue(emailValidator.isValidEmail("user.name+tag+sorting@example.com"))
+        assertTrue(emailValidator.isEmailValid("user.name+tag+sorting@example.com"))
     }
 
     @Test
     fun testValidationValidEmailWikipedia07() {
-        assertTrue(emailValidator.isValidEmail("user.name@example.com"))
+        assertTrue(emailValidator.isEmailValid("user.name@example.com"))
     }
 
     @Test
     fun testValidationValidEmailWikipedia08() {
-        assertTrue(emailValidator.isValidEmail("x@example.com"))
+        assertTrue(emailValidator.isEmailValid("x@example.com"))
     }
 
     @Test
     fun testValidationValidEmailWikipedia09() {
-        assertTrue(emailValidator.isValidEmail("\"very.(),:;<>[]\\\".VERY.\\\"very@\\\\ \\\"very\\\".unusual\"@strange.example.com"))
+        assertTrue(emailValidator.isEmailValid("\"very.(),:;<>[]\\\".VERY.\\\"very@\\\\ \\\"very\\\".unusual\"@strange.example.com"))
     }
 
     @Test
     fun testValidationValidEmailWikipedia10() {
-        assertTrue(emailValidator.isValidEmail("example-indeed@strange-example.com"))
+        assertTrue(emailValidator.isEmailValid("example-indeed@strange-example.com"))
     }
 
     @Test
     fun testValidationValidEmailWikipedia11() {
-        assertTrue(emailValidator.isValidEmail("#!\$%&'*+-/=?^_`{}|~@example.org"))
+        assertTrue(emailValidator.isEmailValid("#!\$%&'*+-/=?^_`{}|~@example.org"))
     }
 
     @Test
     fun testValidationValidEmailWikipedia12() {
-        assertTrue(emailValidator.isValidEmail("\"()<>[]:,;@\\\\\\\"!#\$%&'-/=?^_`{}| ~.a\"@example.org"))
+        assertTrue(emailValidator.isEmailValid("\"()<>[]:,;@\\\\\\\"!#\$%&'-/=?^_`{}| ~.a\"@example.org"))
     }
 
     @Test
     fun testValidationValidEmailWikipedia13() {
-        assertTrue(emailValidator.isValidEmail("example@s.example"))
+        assertTrue(emailValidator.isEmailValid("example@s.example"))
     }
 
     @Test
     fun testValidationValidEmailWikipedia14() {
-        assertTrue(emailValidator.isValidEmail("user@[2001:DB8::1]"))
+        assertTrue(emailValidator.isEmailValid("user@[2001:DB8::1]"))
     }
 
     @Test
     fun testValidationValidEmailWikipedia15() {
-        assertTrue(emailValidator.isValidEmail("\" \"@example.org"))
+        assertTrue(emailValidator.isEmailValid("\" \"@example.org"))
     }
 
     // INVALID =====================================================================================
 
     @Test
     fun testValidationInvalidEmailWikipedia01() {
-        assertFalse(emailValidator.isValidEmail("Abc.example.com"))
+        assertFalse(emailValidator.isEmailValid("Abc.example.com"))
     }
 
     @Test
     fun testValidationInvalidEmailWikipedia02() {
-        assertFalse(emailValidator.isValidEmail("A@b@c@example.com"))
+        assertFalse(emailValidator.isEmailValid("A@b@c@example.com"))
     }
 
     @Test
     fun testValidationInvalidEmailWikipedia03() {
-        assertFalse(emailValidator.isValidEmail("a\"b(c)d,e:f;g<h>i[j\\k]l@example.com"))
+        assertFalse(emailValidator.isEmailValid("a\"b(c)d,e:f;g<h>i[j\\k]l@example.com"))
     }
 
     @Test
     fun testValidationInvalidEmailWikipedia04() {
-        assertFalse(emailValidator.isValidEmail("just\"not\"right@example.com"))
+        assertFalse(emailValidator.isEmailValid("just\"not\"right@example.com"))
     }
 
     @Test
     fun testValidationInvalidEmailWikipedia05() {
-        assertFalse(emailValidator.isValidEmail("this is\"not\\allowed@example.com"))
+        assertFalse(emailValidator.isEmailValid("this is\"not\\allowed@example.com"))
     }
 
     @Test
     fun testValidationInvalidEmailWikipedia06() {
-        assertFalse(emailValidator.isValidEmail("this\\ still\\\"not\\\\allowed@example.com"))
+        assertFalse(emailValidator.isEmailValid("this\\ still\\\"not\\\\allowed@example.com"))
     }
 
     @Test
     fun testValidationInvalidEmailWikipedia07() {
         val email = "1234567890123456789012345678901234567890123456789012345678901234+x@example.com"
-        assertFalse(emailValidator.isValidEmail(email))
+        assertFalse(emailValidator.isEmailValid(email))
     }
 
     @Test
     fun testValidationInvalidEmailWikipedia08() {
-        assertFalse(emailValidator.isValidEmail("john..doe@example.com"))
+        assertFalse(emailValidator.isEmailValid("john..doe@example.com"))
     }
 
     @Test
     fun testValidationInvalidEmailWikipedia09() {
-        assertFalse(emailValidator.isValidEmail("john.doe@example..com"))
+        assertFalse(emailValidator.isEmailValid("john.doe@example..com"))
     }
 }

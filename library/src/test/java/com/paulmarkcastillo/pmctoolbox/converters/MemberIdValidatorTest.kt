@@ -1,4 +1,4 @@
-package toolbox.paulmarkcastillo.com.pmctoolbox.validators
+package com.paulmarkcastillo.pmctoolbox.converters
 
 import com.paulmarkcastillo.pmctoolbox.validators.MemberIdValidator
 import junit.framework.TestCase.assertFalse
@@ -10,51 +10,51 @@ class MemberIdValidatorTest {
 
     @Test
     fun testMemberIdIsNull() {
-        assertFalse(memberIdValidator.isValidMemberId(null))
+        assertFalse(memberIdValidator.isMemberIdValid(null))
     }
 
     @Test
     fun testMemberIdWhiteSpaceOnly() {
-        assertFalse(memberIdValidator.isValidMemberId(" "))
+        assertFalse(memberIdValidator.isMemberIdValid(" "))
     }
 
     @Test
     fun testMemberIdLettersOnly() {
-        assertFalse(memberIdValidator.isValidMemberId("abc"))
+        assertFalse(memberIdValidator.isMemberIdValid("abc"))
     }
 
     @Test
     fun testMemberIdNumbersOnly() {
-        assertFalse(memberIdValidator.isValidMemberId("123"))
+        assertFalse(memberIdValidator.isMemberIdValid("123"))
     }
 
     @Test
     fun testMemberIdSymbolsOnly() {
-        assertFalse(memberIdValidator.isValidMemberId("!@#$%"))
+        assertFalse(memberIdValidator.isMemberIdValid("!@#$%"))
     }
 
     @Test
     fun testMemberIdStartsWithNumber() {
-        assertFalse(memberIdValidator.isValidMemberId("123abc"))
+        assertFalse(memberIdValidator.isMemberIdValid("123abc"))
     }
 
     @Test
     fun testMemberIdEndsWithThreeDigits() {
-        assertFalse(memberIdValidator.isValidMemberId("abc123"))
+        assertFalse(memberIdValidator.isMemberIdValid("abc123"))
     }
 
     @Test
     fun testMemberIdEndsWithFiveDigits() {
-        assertFalse(memberIdValidator.isValidMemberId("abc12345"))
+        assertFalse(memberIdValidator.isMemberIdValid("abc12345"))
     }
 
     @Test
     fun testMemberIdContainsSymbols() {
-        assertFalse(memberIdValidator.isValidMemberId("ab.c1234"))
+        assertFalse(memberIdValidator.isMemberIdValid("ab.c1234"))
     }
 
     @Test
     fun testMemberIdValid() {
-        assertTrue(memberIdValidator.isValidMemberId("jdoe7777"))
+        assertTrue(memberIdValidator.isMemberIdValid("jdoe7777"))
     }
 }

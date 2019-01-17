@@ -4,7 +4,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.regex.Pattern
 
-class DOBValidator(private val minimumAge: Int) {
+class DOBValidator(private val minimumAge: Int) : BaseValidator() {
+
     // This regex check for valid date with a format of MM/dd/yyyy
     private val DATE_PATTERN = Pattern
         .compile(
@@ -15,14 +16,16 @@ class DOBValidator(private val minimumAge: Int) {
                     "|1\\d|2[0-8])\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{1,4})\$"
         )
 
-    fun isValidDate(date: String?): Boolean {
-        return !date.isNullOrEmpty() && DATE_PATTERN.matcher(date).matches()
+    fun isDateValid(string: String?): Boolean {
+        if (string.isNullOrBlank()) return false
+        return DATE_PATTERN.matcher(string).matches()
     }
 
-    fun isValidAge(strDate: String?): Boolean {
+    fun isAgeValid(string: String?): Boolean {
+        if (string.isNullOrBlank()) return false
         val parseStrDate = SimpleDateFormat("MM/dd/yyyy", Locale.getDefault())
         val formatDate = SimpleDateFormat("yyyyMMdd", Locale.getDefault())
-        val birthDate = parseStrDate.parse(strDate)
+        val birthDate = parseStrDate.parse(string)
         val currentDate = Calendar.getInstance().time
         val longBirthDate = (formatDate.format(birthDate)).toLong()
         val longCurrentDate = (formatDate.format(currentDate)).toLong()

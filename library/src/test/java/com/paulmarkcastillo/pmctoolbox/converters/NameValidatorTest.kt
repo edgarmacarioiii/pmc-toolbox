@@ -1,4 +1,4 @@
-package toolbox.paulmarkcastillo.com.pmctoolbox.validators
+package com.paulmarkcastillo.pmctoolbox.converters
 
 import com.paulmarkcastillo.pmctoolbox.validators.NameValidator
 import junit.framework.TestCase.assertFalse
@@ -11,33 +11,33 @@ class NameValidatorTest {
 
     @Test
     fun testNameIsNull() {
-        assertFalse(nameValidator.isValidName(null))
+        assertFalse(nameValidator.isNameValid(null))
     }
 
     @Test
     fun testNameWhitespaceOnly() {
-        assertFalse(nameValidator.isValidName(" "))
+        assertFalse(nameValidator.isNameValid(" "))
     }
 
     @Test
     fun testNameValid() {
-        assertTrue(nameValidator.isValidName("John Doe"))
+        assertTrue(nameValidator.isNameValid("John Doe"))
     }
 
     @Test
     fun testNameValidOneLetterOnly() {
-        assertTrue(nameValidator.isValidName("J"))
+        assertTrue(nameValidator.isNameValid("J"))
     }
 
     @Test
     fun testNameValidOneDigitOnly() {
-        assertTrue(nameValidator.isValidName("1"))
+        assertTrue(nameValidator.isNameValid("1"))
     }
 
     @Test
     fun testNameValidLong() {
         assertTrue(
-            nameValidator.isValidName(
+            nameValidator.isNameValid(
                 "Barnaby Marmaduke Aloysius Benjy Cobweb Dartagnan " +
                         "Egbert Felix Gaspar Humbert Ignatius Jayden Kasper Leroy Maximilian Neddy Obiajulu Pepin Quilliam " +
                         "Rosencrantz Sexton Teddy Upwood Vivatma Wayland Xylon Yardley Zachary Usansky"
@@ -47,16 +47,16 @@ class NameValidatorTest {
 
     @Test
     fun testNameValidBackTick() {
-        assertTrue(nameValidator.isValidName("`"))
+        assertTrue(nameValidator.isNameValid("`"))
     }
 
     @Test
     fun testNameValidEmoji() {
-        assertTrue(nameValidator.isValidName("\uD83D\uDE00"))
+        assertTrue(nameValidator.isNameValid("\uD83D\uDE00"))
     }
 
     @Test
     fun testNameValidKaizen() {
-        assertTrue(nameValidator.isValidName("改善"))
+        assertTrue(nameValidator.isNameValid("改善"))
     }
 }

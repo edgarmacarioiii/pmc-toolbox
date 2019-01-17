@@ -1,4 +1,4 @@
-package toolbox.paulmarkcastillo.com.pmctoolbox.validators
+package com.paulmarkcastillo.pmctoolbox.converters
 
 import com.paulmarkcastillo.pmctoolbox.validators.PasswordValidator
 import junit.framework.TestCase.assertFalse
@@ -11,46 +11,46 @@ class PasswordValidatorTest {
 
     @Test
     fun testPasswordIsNull() {
-        assertFalse(passwordValidator.passwordMeetsMinimumLength(null))
+        assertFalse(passwordValidator.isPasswordMeetsMinimumLength(null))
     }
 
     @Test
     fun testPasswordIsEmpty() {
-        assertFalse(passwordValidator.passwordMeetsMinimumLength(""))
+        assertFalse(passwordValidator.isPasswordMeetsMinimumLength(""))
     }
 
     @Test
     fun testPasswordDoesNotMeetMinimum() {
-        assertFalse(passwordValidator.passwordMeetsMinimumLength("qwer123"))
+        assertFalse(passwordValidator.isPasswordMeetsMinimumLength("qwer123"))
     }
 
     @Test
     fun testPasswordNoNumber() {
-        assertFalse(passwordValidator.passwordHasAtleastOneNumber("qwerasdf"))
+        assertFalse(passwordValidator.isPasswordHasAtleastOneNumber("qwerasdf"))
     }
 
     @Test
     fun testPasswordContainsSpaces() {
-        assertFalse(passwordValidator.passwordHasNoSpaces("qwer asdf"))
+        assertFalse(passwordValidator.isPasswordHasNoSpaces("qwer asdf"))
     }
 
     @Test
     fun testPasswordInvalid() {
-        assertFalse(passwordValidator.isValidPassword("1234qwe r"))
+        assertFalse(passwordValidator.isPasswordValid("1234qwe r"))
     }
 
     @Test
     fun testPasswordValid() {
-        assertTrue(passwordValidator.isValidPassword("1234qwer"))
+        assertTrue(passwordValidator.isPasswordValid("1234qwer"))
     }
 
     @Test
     fun testPasswordValidMeetMinimum() {
-        assertTrue(passwordValidator.passwordMeetsMinimumLength("qwer1234"))
+        assertTrue(passwordValidator.isPasswordMeetsMinimumLength("qwer1234"))
     }
 
     @Test
     fun testPasswordValidSpecialCharacters() {
-        assertTrue(passwordValidator.passwordMeetsMinimumLength("!@#$%^&8"))
+        assertTrue(passwordValidator.isPasswordMeetsMinimumLength("!@#$%^&8"))
     }
 }
