@@ -26,14 +26,13 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1"
     implementation "androidx.lifecycle:lifecycle-livedata:2.1.0-alpha01"
     implementation "androidx.databinding:databinding-common:3.3.0"
     implementation "androidx.databinding:databinding-runtime:3.3.0"
     implementation "com.github.nisrulz:validatetor:1.0.0"
     implementation "com.github.kevelbreh:androidunits:0.1.1"
-
     implementation "com.github.sgaikar1:ValidationUtilsLibrary:1.0.2"
-
 
     testImplementation "junit:junit:4.12"
     androidTestImplementation "com.android.support.test:runner:1.0.2"

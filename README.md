@@ -7,17 +7,21 @@ A companion library containing common tools for Android development like: valida
 
 * __Validators__. Powered by [ValidateTor](https://github.com/nisrulz/validatetor)
 
-    * `DOBValidator` - Checks Date of Birth Format
-    * `EmailValidator` - Checks Email Format
-    * `MemberIdValidator` - Checks MemberId Format
-    * `NameValidator` - Checks Name Format
-    * `PasswordValidator` - Checks Password Format
+    * `DOBValidator` - Validates Date of Birth Format
+    * `EmailValidator` - Validates Email Format
+    * `MemberIdValidator` - Validates MemberId Format
+    * `NameValidator` - Validates Name Format
+    * `PasswordValidator` - Validates Password Format
 
 * __Converters__.
 
     * `DisplayUnitConverter` - Px, Dp. Powered by [Android Units](https://github.com/kevelbreh/androidunits)
     * `LengthConverter` - Inch, Feet, Cm
     * `WeightConverter` - Lb, Kg
+
+* __Checkers__.
+
+    * `InternetChecker` - Checks if there's an internet connection
 
 * __LiveData Tools__.
 
