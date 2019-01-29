@@ -4,7 +4,10 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.regex.Pattern
 
-class DOBValidator(private val minimumAge: Int) : BaseValidator() {
+class DOBValidator(
+    private val minimumAge: Int,
+    private val maximumAge: Int
+) : BaseValidator() {
 
     // This regex check for valid date with a format of MM/dd/yyyy
     private val DATE_PATTERN = Pattern
@@ -23,6 +26,15 @@ class DOBValidator(private val minimumAge: Int) : BaseValidator() {
 
     fun isAgeValid(string: String?): Boolean {
         if (string.isNullOrBlank()) return false
+        return getAge(string) >= minimumAge
+    }
+
+    fun isAgeBelowOrEqualToMaximumAge(string: String?): Boolean {
+        if (string.isNullOrBlank()) return false
+        return getAge(string) <= maximumAge
+    }
+
+    private fun getAge(string: String): Int {
         val parseStrDate = SimpleDateFormat("MM/dd/yyyy", Locale.getDefault())
         val formatDate = SimpleDateFormat("yyyyMMdd", Locale.getDefault())
         val birthDate = parseStrDate.parse(string)
@@ -30,6 +42,6 @@ class DOBValidator(private val minimumAge: Int) : BaseValidator() {
         val longBirthDate = (formatDate.format(birthDate)).toLong()
         val longCurrentDate = (formatDate.format(currentDate)).toLong()
         val age = (longCurrentDate - longBirthDate) / 10000
-        return age >= minimumAge
+        return age.toInt()
     }
 }
