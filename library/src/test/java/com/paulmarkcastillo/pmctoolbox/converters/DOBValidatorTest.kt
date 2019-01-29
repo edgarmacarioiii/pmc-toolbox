@@ -7,7 +7,7 @@ import org.junit.Test
 
 class DOBValidatorTest {
 
-    private val dobValidator = DOBValidator(13)
+    private val dobValidator = DOBValidator(13, 100)
 
     // INVALID =======================================================================================
 
@@ -46,6 +46,11 @@ class DOBValidatorTest {
         assertFalse(dobValidator.isAgeValid("01/01/2019"))
     }
 
+    @Test
+    fun testBirthDateIsInvalidOverAge() {
+        assertFalse(dobValidator.isAgeBelowOrEqualToMaximumAge("01/01/1"))
+    }
+
     // VALID =======================================================================================
 
     @Test
@@ -66,5 +71,10 @@ class DOBValidatorTest {
     @Test
     fun testBirthDateIsValid() {
         assertTrue(dobValidator.isAgeValid("01/31/2000"))
+    }
+
+    @Test
+    fun testBirthDateIsValidMaxAge() {
+        assertTrue(dobValidator.isAgeBelowOrEqualToMaximumAge("01/01/1919"))
     }
 }
