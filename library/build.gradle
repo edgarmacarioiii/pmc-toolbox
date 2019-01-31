@@ -59,7 +59,7 @@ ext {
 
     developerId = "paulmarkcastillo"
     developerName = "Paul Mark Castillo"
-    developerEmail = "pcastillo@isbx.com"
+    developerEmail = "paulmarkcastillo@gmail.com"
 
     licenseName = "The Apache Software License, Version 2.0"
     licenseUrl = "http://www.apache.org/licenses/LICENSE-2.0.txt"
