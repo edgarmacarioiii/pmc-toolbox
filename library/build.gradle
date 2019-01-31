@@ -66,10 +66,6 @@ ext {
     allLicenses = ["Apache-2.0"]
 }
 
-task javadoc(type: Javadoc) {
-    excludes = ['**/*.kt']
-}
-
 tasks.withType(Javadoc).all {
     enabled = false
 }
