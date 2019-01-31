@@ -41,3 +41,31 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+ext {
+    bintrayRepo = "maven"
+    bintrayName = "library"
+
+    publishedGroupId = "com.github.paulmarkcastillo"
+    libraryName = "PMC-Toolbox"
+    artifact = "library"
+
+    libraryDescription = "A companion library containing common tools for Android development like: validations, MVVM architecture, and more."
+
+    siteUrl = "https://github.com/paulmarkcastillo/pmc-toolbox"
+    gitUrl = "https://github.com/paulmarkcastillo/pmc-toolbox.git"
+
+    libraryVersion = "1.0.16"
+
+    developerId = "paulmarkcastillo"
+    developerName = "Paul Mark Castillo"
+    developerEmail = "pcastillo@isbx.com"
+
+    licenseName = "The Apache Software License, Version 2.0"
+    licenseUrl = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+    allLicenses = ["Apache-2.0"]
+}
+
+// Place it at the end of the file
+apply from: "https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle"
+apply from: "https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle"
