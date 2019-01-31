@@ -24,6 +24,10 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+task javadoc(type: Javadoc) {
+    excludes = ['**/*.kt']
+}
+
 tasks.withType(Javadoc).all {
     enabled = false
 }
