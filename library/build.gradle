@@ -47,7 +47,7 @@ ext {
     bintrayName = "library"
 
     publishedGroupId = "com.github.paulmarkcastillo"
-    libraryName = "PMC-Toolbox"
+    libraryName = "PMCToolbox"
     artifact = "library"
 
     libraryDescription = "A companion library containing common tools for Android development like: validations, MVVM architecture, and more."
