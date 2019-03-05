@@ -6,7 +6,7 @@ import java.util.regex.Pattern
 
 class DOBValidator(
     private val minimumAge: Int,
-    private val maximumAge: Int
+    private val maximumAge: Int = 0
 ) : BaseValidator() {
 
     // This regex check for valid date with a format of MM/dd/yyyy
