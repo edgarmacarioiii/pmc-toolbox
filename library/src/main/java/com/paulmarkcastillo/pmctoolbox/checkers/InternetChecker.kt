@@ -11,7 +11,7 @@ open class InternetChecker {
     open fun hasInternetAccess(callback: InternetAccessCallback) {
         internetCheckJob = GlobalScope.launch {
             withContext(Dispatchers.Main) {
-                callback.onResult(checkInternetAccess().await())
+                callback.onInternetAccessResult(checkInternetAccess().await())
             }
         }
     }
@@ -23,9 +23,13 @@ open class InternetChecker {
     }
 
     private fun checkInternetAccess(): Deferred<Boolean> {
+        return checkInternetAccess("8.8.8.8")
+    }
+
+    private fun checkInternetAccess(dns: String): Deferred<Boolean> {
         return GlobalScope.async {
             try {
-                val googleDns = "8.8.8.8"
+                val googleDns = dns
                 val dnsPort = 53
                 val timeout = 5000
                 val socket = Socket()
@@ -41,6 +45,6 @@ open class InternetChecker {
     }
 
     interface InternetAccessCallback {
-        fun onResult(hasAccess: Boolean)
+        fun onInternetAccessResult(hasInternetAccess: Boolean)
     }
 }

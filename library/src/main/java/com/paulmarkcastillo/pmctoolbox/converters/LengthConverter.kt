@@ -16,4 +16,8 @@ class LengthConverter : BaseConverter() {
         return inch * 2.54
     }
 
+    fun convertCmToInch(cm: Double): Double {
+        return cm / 2.54
+    }
+
 }
