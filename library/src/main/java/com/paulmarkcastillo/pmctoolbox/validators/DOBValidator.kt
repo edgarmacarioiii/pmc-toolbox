@@ -34,8 +34,8 @@ class DOBValidator(
         return getAge(string) <= maximumAge
     }
 
-    fun getAge(string: String): Int {
-        val parseStrDate = SimpleDateFormat("MM/dd/yyyy", Locale.getDefault())
+    fun getAge(string: String, dateFormat: String = "MM/dd/yyyy"): Int {
+        val parseStrDate = SimpleDateFormat(dateFormat, Locale.getDefault())
         val formatDate = SimpleDateFormat("yyyyMMdd", Locale.getDefault())
         val birthDate = parseStrDate.parse(string)
         val currentDate = Calendar.getInstance().time
