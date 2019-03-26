@@ -55,7 +55,7 @@ ext {
     siteUrl = "https://github.com/paulmarkcastillo/pmc-android-toolbox"
     gitUrl = "https://github.com/paulmarkcastillo/pmc-android-toolbox.git"
 
-    libraryVersion = "1.0.28"
+    libraryVersion = "1.0.29"
 
     developerId = "paulmarkcastillo"
     developerName = "Paul Mark Castillo"
