@@ -27,6 +27,11 @@ A companion library containing common tools for Android development like: valida
 
     * `Event` - From [Here](https://github.com/google/iosched/blob/master/shared/src/main/java/com/google/samples/apps/iosched/shared/result/Event.kt)
     * `NonNullObservableField` - From [Here](https://medium.com/meesho-tech/non-null-observablefield-in-kotlin-bd72d31ab54f)
+    
+* __Date Tools__.
+    
+    * `DateTimeHelper` - Get current date time in UTC and local timezone
+    * `DateTimeExtension` - Date time timezone converter (e.g UTC to GMT+8, etc)
 
 
 ## License
