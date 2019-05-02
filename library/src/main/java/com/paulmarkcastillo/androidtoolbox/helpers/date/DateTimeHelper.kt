@@ -2,6 +2,7 @@ package com.paulmarkcastillo.androidtoolbox.helpers.date
 
 import java.util.Calendar
 import java.util.TimeZone
+import java.util.concurrent.TimeUnit
 
 class DateTimeHelper {
     private val timeZoneUtc = TimeZone.getTimeZone("UTC")
@@ -25,6 +26,12 @@ class DateTimeHelper {
         get() = getCurrentDateTime().get(Calendar.SECOND)
     val currentDateDayOfYear: Int
         get() = getCurrentDateTime().get(Calendar.DAY_OF_YEAR)
+    val currentTimeOffset: Int
+        get() {
+            val timeOffsetInMillis =
+                getCurrentDateTime().get(Calendar.ZONE_OFFSET) + getCurrentDateTime().get(Calendar.DST_OFFSET).toLong()
+            return TimeUnit.MILLISECONDS.toHours(timeOffsetInMillis).toInt()
+        }
 
     fun getCurrentDateTimeUtc(): Calendar {
         calendarUtc.timeInMillis = System.currentTimeMillis()
